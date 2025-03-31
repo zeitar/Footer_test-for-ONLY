@@ -30,12 +30,19 @@ def check_footer_elements_on_page(url):
             return
 
         expected_elements = {
-            "Проекты": "a.Header_linkItem__AqdrQ:nth-child(1)",
-            "Кампания": "a.Header_linkItem__AqdrQ:nth-child(2)",
-            "Направления": "a.Header_linkItem__AqdrQ:nth-child(3)",
-            "Карьера": "a.Header_linkItem__AqdrQ:nth-child(4)",
-            "Блог": "a.Header_linkItem__AqdrQ:nth-child(5)",
-            "Контакты": "a.Header_linkItem__AqdrQ:nth-child(6)"
+            "Кнопка НАЧАТЬ ПРОЕКТ ": "button.buttons:nth-child(1)",
+            "BEHANCE": "div.Socials_socialsWrap__DPtp_:nth-child(3) > a:nth-child(1)",
+            "DPROFILE": "div.Socials_socialsWrap__DPtp_:nth-child(3) > a:nth-child(2)",
+            "TELEGRAM": "div.Socials_socialsWrap__DPtp_:nth-child(3) > a:nth-child(3)",
+            "VKONTAKTE": "div.Socials_socialsWrap__DPtp_:nth-child(3) > a:nth-child(4)",
+            "Почта": "a.text1:nth-child(1)",
+            "Контакты": "div.ContactsLinks_contactLinks__vex86:nth-child(6) > a:nth-child(2)",
+            "телеграм для связи": "div.Telegram_telegramWrap__USZkq:nth-child(4) > a:nth-child(2)",
+            "Презентация PDF": "div.Documents_documentsWrap__iNfwU:nth-child(8) > div:nth-child(1) > a:nth-child(1)",
+            "Презентация pitch": "div.Documents_documentsWrap__iNfwU:nth-child(8) > div:nth-child(1) > a:nth-child(2)",
+            "AGE": "p.h4",
+            "CREATIVE DIGITAL PRODUCTION": ".copyrightsBig > span:nth-child(1) > span:nth-child(1)",
+
         }
 
         for element_name, element_selector in expected_elements.items():
@@ -47,7 +54,7 @@ def check_footer_elements_on_page(url):
                     driver.find_element(By.CSS_SELECTOR, element_selector)
                 print(f"Элемент '{element_name}' найден в футере.")
             except NoSuchElementException:
-                print(f"Элемент '{element_name}' отсутствует в футере!")
+                print(f"---------------Элемент '{element_name}' отсутствует в футере!")
 
 
     except Exception as e:
